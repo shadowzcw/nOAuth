@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+1.
+<label class="control-label checkbox">
+    <input type="checkbox" id="ServerFetch" checked="checked"/>&nbsp;
+    Perform OAuth Authz on server
+</label>
+<button id="GetValuesButton" class="btn btn-primary">第三方授权</button><br/>
+2.
+<a href="/Home/Passwordauth">Password 授权</a><br/>
+资源服务器获取到的数据：
+<div id="Output" class="alert alert-info">@ViewBag.Values</div>
+
+<script src="../../Scripts/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="../../Scripts/dnoa.webapisample.client.js" type="text/javascript"></script>
+<script language="javascript">
+    window.DNOA.OAuth.Client.Setup({
+        GetValuesURI: '@Url.Action("GetValues")'
+    })
+    </script>
+
